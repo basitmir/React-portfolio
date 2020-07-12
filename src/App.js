@@ -3,7 +3,7 @@ import ResponsiveDrawer from '../src/components/Drawer'
 
 function App() {
   return (
-    <React.Fragment style={{overflow:'hidden'}}>
+    <React.Fragment>
     <ResponsiveDrawer/>
     </React.Fragment>
   );

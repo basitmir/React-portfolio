@@ -22,7 +22,6 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import ImageAvator from '../components/Avatar'
 import About from './About';
-import { Box } from '@material-ui/core';
 
 const drawerWidth = 270;
 
