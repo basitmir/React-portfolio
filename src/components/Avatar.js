@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 
 const StyledBadge = withStyles((theme) => ({
     badge: {
-      backgroundColor: '#4db6ac',
+      backgroundColor: '#212121',
       color: '#4db6ac',
       boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
       '&::after': {
@@ -32,7 +32,7 @@ const StyledBadge = withStyles((theme) => ({
         height: '100%',
         borderRadius: '50%',
         animation: '$ripple 1.2s infinite ease-in-out',
-        border: '1px solid #e0f2f1',
+        border: '1px solid #9e9e9e',
         content: '""',
       },
     },
@@ -61,7 +61,7 @@ export default function ImageAvatars() {
         }}
         variant="dot"
       >
-      <Avatar alt="Basit Mir" src="/static/images/avatar/1.jpg" className={classes.large} />
+      <Avatar  src="/assets/self.jpg" className={classes.large} />
       </StyledBadge>
     </div>
   );
