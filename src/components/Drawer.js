@@ -95,7 +95,7 @@ function ResponsiveDrawer(props) {
 			<List >
 				<ImageAvator />
 				{sideBar.options.map((text, index) => (
-					<ListItem button key={text}  >
+					<ListItem button key={text} autoFocus={text === 'HOME'? true:false}>
 						<ListItemIcon style={{ minWidth: 35, color: colorNames.SIDEBAR_TEXT }}>{selectIcon(index)}</ListItemIcon>
 						<ListItemText primary={text} primaryTypographyProps={{ style: { fontWeight: 'bold', textAlign: 'start' } }} />
 					</ListItem>
