@@ -13,16 +13,17 @@ import { colorNames } from '../config/colors';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
-		// textAlign:'center',
+		
 		'& > *': {
 			margin: theme.spacing(1),
 		},
 
 		[theme.breakpoints.down('xs')]: {
+			// textAlign:'center',
 			'& > *': {
 				margin: theme.spacing(0.5),
 			},
-			paddingLeft: '10px'
+			paddingLeft: '12px'
 		},
 
 		paddingLeft: '15px'

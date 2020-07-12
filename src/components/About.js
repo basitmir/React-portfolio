@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
 		marginBottom: 0,
 		color: 'white',
 		[theme.breakpoints.down('xs')]: {
-			fontSize: '3.8rem'
+			fontSize: '3.5rem'
 		},
 		[theme.breakpoints.up('sm')]: {
 			fontSize: '4.2rem'
@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
 	subHead: {
 		color: 'white',
 		[theme.breakpoints.down('xs')]: {
-			fontSize: '1.6rem'
+			fontSize: '1.5rem'
 		},
 		[theme.breakpoints.up('sm')]: {
 			fontSize: '2.125rem'
