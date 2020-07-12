@@ -1,10 +1,10 @@
 import React from 'react';
-import ResponsiveDrawer from '../src/components/Drawer' 
+import ResponsiveDrawer from '../src/components/Drawer'
 
 function App() {
   return (
     <React.Fragment>
-    <ResponsiveDrawer/>
+      <ResponsiveDrawer />
     </React.Fragment>
   );
 }
