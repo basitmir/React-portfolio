@@ -77,7 +77,6 @@ export default function SocialButtons() {
 	const classes = useStyles();
 
 	return (
-		// <Divider variant="inset"/>
 		<div className={classes.root} mt={10}>
 
 

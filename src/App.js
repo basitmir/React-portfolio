@@ -1,12 +1,12 @@
 import React from 'react';
 import ResponsiveDrawer from '../src/components/Drawer'
+import ErrorBoundary from './components/ErrorBoundary';
 
 function App() {
-  return (
-    <React.Fragment>
+  return <ErrorBoundary>
       <ResponsiveDrawer />
-    </React.Fragment>
-  );
+      </ErrorBoundary>
+  
 }
 
 export default App;

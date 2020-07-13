@@ -5,17 +5,19 @@ import StarsRoundedIcon from '@material-ui/icons/StarsRounded';
 import PermContactCalendarTwoToneIcon from '@material-ui/icons/PermContactCalendarTwoTone';
 import HomeTwoToneIcon from '@material-ui/icons/HomeTwoTone';
 import React from 'react';
+import profile from '../assets/self.jpg';
+import backgroundImage from '../assets/bg1.png'
 
 export const about={
     firstName:'BASIT',
     lastName:'MIR',
     profile:['Software Engineer','Application Developer','Programmer'],
     qoute:'If you can imagine it, I can make it...',
-    backgroundImage:"/assets/bg1.png"
+    backgroundImage: backgroundImage
 }
 
 export const avatar={
-    profileImage:"/assets/self.jpg"
+    profileImage: profile
 }
 
 export const sideBar={
