@@ -5,5 +5,5 @@
 
 <h3>For Live Demo : <a href="https://basitmir.github.io">PORTFOLIO</a><br><br>
 <p align="left">
- <img src="/screenshots/home.png" height="400">
+ <img src="./screenshots/home.png" height="400">
 </p>
