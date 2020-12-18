@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -13,24 +13,26 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import ImageAvator from '../components/Avatar'
+import ImageAvator from '../components/Avatar';
+import Home from './Home';
 import About from './About';
-import {sideBar} from '../config/details';
-import {colorNames} from '../config/colors'
+import Education from './Education';
+import Contact from './Contact';
+import Skills from './Skills';
+import Work from './Work';
+import { sideBar } from '../config/details';
+import { colorNames } from '../config/colors';
 
 const drawerWidth = 270;
 
 const useStyles = makeStyles((theme) => ({
 	root: {
 		display: 'flex',
-
 	},
 	drawer: {
-
 		[theme.breakpoints.up('sm')]: {
 			width: drawerWidth,
 			flexShrink: 0,
-
 		},
 	},
 	appBar: {
@@ -38,11 +40,9 @@ const useStyles = makeStyles((theme) => ({
 		[theme.breakpoints.up('sm')]: {
 			width: `calc(100% - ${drawerWidth}px)`,
 			marginLeft: drawerWidth,
-
 		},
 	},
 	menuButton: {
-
 		marginRight: theme.spacing(2),
 		[theme.breakpoints.up('sm')]: {
 			display: 'none',
@@ -51,7 +51,6 @@ const useStyles = makeStyles((theme) => ({
 	// necessary for content to be below app bar
 	toolbar: theme.mixins.toolbar,
 	drawerPaper: {
-
 		width: drawerWidth,
 		alignItems: 'center',
 		justifyContent: 'center',
@@ -59,12 +58,11 @@ const useStyles = makeStyles((theme) => ({
 		color: colorNames.SIDEBAR_TEXT,
 	},
 	content: {
-
 		flexGrow: 1,
 		padding: theme.spacing(3),
 	},
 	fontChange: {
-		fontWeight: 600
+		fontWeight: 600,
 	},
 	sideDrawMobile: {
 		[theme.breakpoints.down('xs')]: {
@@ -78,6 +76,32 @@ function ResponsiveDrawer(props) {
 	const classes = useStyles();
 	const theme = useTheme();
 	const [mobileOpen, setMobileOpen] = React.useState(false);
+	const [currentComponentName, setcurrentComponentName] = React.useState(
+		'HOME'
+	);
+	const [CurrentComponent, setCurrentComponent] = React.useState(<Home />);
+
+	useEffect(() => {
+		switch (currentComponentName) {
+			case 'ABOUT':
+				return setCurrentComponent(<About />);
+			case 'EDUCATION':
+				return setCurrentComponent(<Education />);
+			case 'SKILLS':
+				return setCurrentComponent(<Skills />);
+			case 'WORK':
+				return setCurrentComponent(<Work />);
+			case 'CONTACT':
+				return setCurrentComponent(<Contact />);
+			default:
+				setCurrentComponent(<Home />);
+		}
+	}, [currentComponentName]);
+
+	// swithc
+	// useEffect(() => {
+	// 	if (listRef) listRef.current[currentComponentName].focus();
+	// }, [currentComponentName]);
 
 	const handleDrawerToggle = () => {
 		setMobileOpen(!mobileOpen);
@@ -85,26 +109,44 @@ function ResponsiveDrawer(props) {
 
 	const selectIcon = (index) => {
 		switch (index) {
-			case index: return sideBar.icons[index]
-			default: return null
+			case index:
+				return sideBar.icons[index];
+			default:
+				return null;
 		}
-	}
-
+	};
 	const drawer = (
 		<div className={classes.sideDrawMobile}>
-			<List >
+			<List>
 				<ImageAvator />
 				{sideBar.options.map((text, index) => (
-					<ListItem button key={text} autoFocus={text === 'HOME'? true:false}>
-						<ListItemIcon style={{ minWidth: 35, color: colorNames.SIDEBAR_TEXT }}>{selectIcon(index)}</ListItemIcon>
-						<ListItemText primary={text} primaryTypographyProps={{ style: { fontWeight: 'bold', textAlign: 'start' } }} />
+					<ListItem
+						// ref={(list) => (listRef.current[text] = list)}
+						style={{ cursor: 'pointer' }}
+						button={text === currentComponentName}
+						key={text}
+						autoFocus={text === currentComponentName}
+						onClick={() => setcurrentComponentName(text)}
+					>
+						<ListItemIcon
+							style={{ minWidth: 35, color: colorNames.SIDEBAR_TEXT }}
+						>
+							{selectIcon(index)}
+						</ListItemIcon>
+						<ListItemText
+							primary={text}
+							primaryTypographyProps={{
+								style: { fontWeight: 'bold', textAlign: 'start' },
+							}}
+						/>
 					</ListItem>
 				))}
 			</List>
 		</div>
 	);
 
-	const container = window !== undefined ? () => window().document.body : undefined;
+	const container =
+		window !== undefined ? () => window().document.body : undefined;
 
 	return (
 		<div className={classes.root}>
@@ -131,7 +173,6 @@ function ResponsiveDrawer(props) {
 				{/* The implementation can be swapped with js to avoid SEO duplication of links. */}
 				<Hidden smUp implementation="css">
 					<Drawer
-
 						container={container}
 						variant="temporary"
 						anchor={theme.direction === 'rtl' ? 'right' : 'left'}
@@ -149,7 +190,6 @@ function ResponsiveDrawer(props) {
 				</Hidden>
 				<Hidden xsDown implementation="css">
 					<Drawer
-
 						classes={{
 							paper: classes.drawerPaper,
 						}}
@@ -162,9 +202,7 @@ function ResponsiveDrawer(props) {
 			</nav>
 			<main className={classes.content} style={{ padding: 0 }}>
 				{/* <div className={classes.toolbar} /> */}
-				<Container disableGutters>
-					<About />
-				</Container>
+				<Container disableGutters>{CurrentComponent}</Container>
 			</main>
 		</div>
 	);
