@@ -107,6 +107,11 @@ function ResponsiveDrawer(props) {
 		setMobileOpen(!mobileOpen);
 	};
 
+	const handleOptionsClick=(text)=>{
+		setcurrentComponentName(text);
+		setMobileOpen(false); //close drawer after click
+	}
+
 	const selectIcon = (index) => {
 		switch (index) {
 			case index:
@@ -126,7 +131,7 @@ function ResponsiveDrawer(props) {
 						button={text === currentComponentName}
 						key={text}
 						autoFocus={text === currentComponentName}
-						onClick={() => setcurrentComponentName(text)}
+						onClick={() => handleOptionsClick(text)}
 					>
 						<ListItemIcon
 							style={{ minWidth: 35, color: colorNames.SIDEBAR_TEXT }}

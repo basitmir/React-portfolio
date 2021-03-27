@@ -6,6 +6,7 @@ import Typewriter from 'typewriter-effect';
 import { Container } from '@material-ui/core';
 import { about } from '../config/details';
 import { colorNames } from '../config/colors';
+import Slide from 'react-reveal/Slide';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -63,50 +64,52 @@ export default function Home() {
 	const classes = useStyles();
 
 	return (
-		<div className={classes.root}>
-			<Container className={classes.section}>
-				<Typography
-					variant="h1"
-					component="h2"
-					gutterBottom
-					className={classes.mainHead}
-				>
-					<span style={{ color: colorNames.NAME_COLOR }}>
-						{' '}
-						{about.firstName}{' '}
-					</span>{' '}
-					{about.lastName}
-				</Typography>
+		<Slide left cascade>
+			<div className={classes.root}>
+				<Container className={classes.section}>
+					<Typography
+						variant="h1"
+						component="h2"
+						gutterBottom
+						className={classes.mainHead}
+					>
+						<span style={{ color: colorNames.NAME_COLOR }}>
+							{' '}
+							{about.firstName}{' '}
+						</span>{' '}
+						{about.lastName}
+					</Typography>
 
-				<Typography variant="h4" gutterBottom className={classes.subHead}>
-					<Typewriter
-						options={{
-							autoStart: true,
-							loop: true,
-						}}
-						onInit={(typewriter) => {
-							typewriter.typeString(
-								`<span style="color:${colorNames.NAME_COLOR}"}}> I'm </span>`
-							);
-							typewriter.typeString(about.profile[0]).deleteChars(17);
-							typewriter.typeString(about.profile[1]).deleteChars(21);
-							typewriter.typeString(about.profile[2]).deleteChars(10).start();
-						}}
-					/>
-				</Typography>
+					<Typography variant="h4" gutterBottom className={classes.subHead}>
+						<Typewriter
+							options={{
+								autoStart: true,
+								loop: true,
+							}}
+							onInit={(typewriter) => {
+								typewriter.typeString(
+									`<span style="color:${colorNames.NAME_COLOR}"}}> I'm </span>`
+								);
+								typewriter.typeString(about.profile[0]).deleteChars(17);
+								typewriter.typeString(about.profile[1]).deleteChars(21);
+								typewriter.typeString(about.profile[2]).deleteChars(10).start();
+							}}
+						/>
+					</Typography>
 
-				<Typography
-					variant="body1"
-					gutterBottom
-					className={classes.lowerHead}
-					mt={5}
-				>
-					{about.qoute}
-				</Typography>
-			</Container>
-			<div>
-				<SocialButtons />
+					<Typography
+						variant="body1"
+						gutterBottom
+						className={classes.lowerHead}
+						mt={5}
+					>
+						{about.qoute}
+					</Typography>
+				</Container>
+				<div>
+					<SocialButtons />
+				</div>
 			</div>
-		</div>
+		</Slide>
 	);
 }

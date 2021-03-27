@@ -16,15 +16,20 @@ import { about } from '../config/details';
 import Typography from '@material-ui/core/Typography';
 import { colorNames } from '../config/colors';
 import MenuBookOutlinedIcon from '@material-ui/icons/MenuBookOutlined';
+import Slide from 'react-reveal/Slide';
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
-		padding: '30px 5px',
+		padding: '15px 5px',
 		background: `linear-gradient(55deg, ${colorNames.SIDEBAR_GRADIENT1} 30%, ${colorNames.SIDEBAR_GRADIENT2}  55%)`,
 		color: colorNames.SIDEBAR_TEXT,
 	},
 	secondaryTail: {
 		backgroundColor: colorNames.SIDEBAR_TEXT,
+		height: '50px',
+	},
+	timeLineDot: {
+		backgroundColor: colorNames.WHITE,
 	},
 	root: {
 		width: '100%',
@@ -40,6 +45,8 @@ const useStyles = makeStyles((theme) => ({
 		justifyContent: 'center',
 		[theme.breakpoints.down('xs')]: {
 			padding: 18,
+			overflow: 'hidden',
+			paddingTop: '110px',
 		},
 	},
 	section: {
@@ -50,10 +57,13 @@ const useStyles = makeStyles((theme) => ({
 	},
 	details: {
 		textAlign: 'center',
+		fontSize:'10px',
+		fontWeight:'bold'
 	},
 	typography: {
 		color: colorNames.BLACK,
 		fontWeight: 'bold',
+		fontSize: '12px',
 	},
 }));
 
@@ -62,180 +72,195 @@ export default function Education() {
 
 	return (
 		<div className={classes.root}>
-			<Container className={classes.section}>
-				<Timeline align="alternate">
-					<TimelineItem>
-						<TimelineSeparator>
-							<TimelineDot variant="outlined" />
-							<TimelineConnector className={classes.secondaryTail} />
-						</TimelineSeparator>
-						<TimelineContent></TimelineContent>
-					</TimelineItem>
-					<TimelineItem>
-						<TimelineOppositeContent>
-							<Typography
-								variant="body2"
-								color="textSecondary"
-								className={classes.typography}
-							>
-								2009
-							</Typography>
-						</TimelineOppositeContent>
-						<TimelineSeparator>
-							<TimelineDot className={classes.secondaryTail}>
-								<SchoolIcon
-									style={{
-										fontSize: 40,
-										color: colorNames.NAME_COLOR,
-									}}
-								/>
-							</TimelineDot>
-							<TimelineConnector className={classes.secondaryTail} />
-						</TimelineSeparator>
-						<TimelineContent>
-							<Paper elevation={3} className={classes.paper}>
-								<a
-									href="http://sp-school.in/"
-									target="_blank"
-									rel="noopener noreferrer"
-									style={{
-										textDecoration: 'none',
-										color: colorNames.SIDEBAR_TEXT,
-									}}
-								>
-									<Typography
-										variant="h6"
-										component="h6"
-										className={classes.details}
-									>
-										SRINAGR BRITISH SCHOOL
-									</Typography>
-								</a>
-								{/* <Typography>Because you need strength</Typography> */}
-							</Paper>
-						</TimelineContent>
-					</TimelineItem>
-					<TimelineItem>
-						<TimelineOppositeContent>
-							<Typography
-								variant="body2"
-								color="textSecondary"
-								className={classes.typography}
-							>
-								2011
-							</Typography>
-						</TimelineOppositeContent>
-						<TimelineSeparator>
-							<TimelineDot className={classes.secondaryTail}>
-								<MenuBookOutlinedIcon
-									style={{ fontSize: 40, color: colorNames.NAME_COLOR }}
-								/>
-							</TimelineDot>
-							<TimelineConnector className={classes.secondaryTail} />
-						</TimelineSeparator>
-						<TimelineContent>
-							<Paper elevation={3} className={classes.paper}>
-								<a
-									href="http://sp-school.in/"
-									target="_blank"
-									rel="noopener noreferrer"
-									style={{
-										textDecoration: 'none',
-										color: colorNames.SIDEBAR_TEXT,
-									}}
-								>
-									<Typography
-										variant="h6"
-										component="h1"
-										className={classes.details}
-									>
-										{' '}
-										SRI PRATAP HIGHER SECONDARY
-									</Typography>{' '}
-								</a>
-								{/* <Typography>Because it&apos;s awesome!</Typography> */}
-							</Paper>
-						</TimelineContent>
-					</TimelineItem>
-					<TimelineItem>
-						<TimelineOppositeContent>
-							<Typography
-								variant="body2"
-								color="textSecondary"
-								className={classes.typography}
-							>
-								2015
-							</Typography>
-						</TimelineOppositeContent>
-						<TimelineSeparator>
-							<TimelineDot className={classes.secondaryTail}>
-								<ImportantDevicesIcon
-									style={{ fontSize: 40, color: colorNames.NAME_COLOR }}
-								/>
-							</TimelineDot>
-							<TimelineConnector className={classes.secondaryTail} />
-						</TimelineSeparator>
-						<TimelineContent>
-							<Paper elevation={3} className={classes.paper}>
+			<Slide left cascade>
+				<Container className={classes.section} >
+					<Timeline align="alternate">
+						<TimelineItem>
+							<TimelineSeparator>
+								<TimelineDot variant="outlined" />
+								<TimelineConnector className={classes.secondaryTail} />
+							</TimelineSeparator>
+							<TimelineContent></TimelineContent>
+						</TimelineItem>
+						<TimelineItem>
+							<TimelineOppositeContent>
 								<Typography
-									variant="h6"
-									component="h1"
-									className={classes.details}
+									variant="body2"
+									color="textSecondary"
+									className={classes.typography}
 								>
-									CASET COLLEGE OF COMPUTER SCIENCE AND ENGINEERING
+									2009
 								</Typography>
-								{/* <Typography>Because it&apos;s awesome!</Typography> */}
-							</Paper>
-						</TimelineContent>
-					</TimelineItem>
-					<TimelineItem>
-						<TimelineOppositeContent>
-							<Typography
-								variant="body2"
-								color="textSecondary"
-								className={classes.typography}
-							>
-								2018
-							</Typography>
-						</TimelineOppositeContent>
-						<TimelineSeparator>
-							<TimelineDot className={classes.secondaryTail}>
-								<CastForEducationIcon
-									style={{ fontSize: 40, color: colorNames.NAME_COLOR }}
-								/>
-							</TimelineDot>
-							<TimelineConnector className={classes.secondaryTail} />
-						</TimelineSeparator>
-						<TimelineContent>
-							<Paper elevation={3} className={classes.paper}>
+							</TimelineOppositeContent>
+							<TimelineSeparator>
+								<TimelineDot className={classes.timeLineDot}>
+									<SchoolIcon
+										style={{
+											fontSize: 30,
+											color: colorNames.NAME_COLOR,
+										}}
+									/>
+								</TimelineDot>
+								<TimelineConnector className={classes.secondaryTail} />
+							</TimelineSeparator>
+							<TimelineContent>
+								<Paper elevation={3} className={classes.paper}>
+									<a
+										href="http://basitmir.github.io/"
+										target="_blank"
+										rel="noopener noreferrer"
+										style={{
+											textDecoration: 'none',
+											color: colorNames.SIDEBAR_TEXT,
+										}}
+									>
+										<Typography
+											variant="h6"
+											component="h6"
+											className={classes.details}
+										>
+											SRINAGR BRITISH SCHOOL
+										</Typography>
+									</a>
+									{/* <Typography>Because you need strength</Typography> */}
+								</Paper>
+							</TimelineContent>
+						</TimelineItem>
+						<TimelineItem>
+							<TimelineOppositeContent>
 								<Typography
-									variant="h6"
-									component="h1"
-									className={classes.details}
+									variant="body2"
+									color="textSecondary"
+									className={classes.typography}
 								>
-									UNIVERSITY OF KASHMIR
+									2011
 								</Typography>
-								{/* <Typography>Because you need rest</Typography> */}
-							</Paper>
-						</TimelineContent>
-					</TimelineItem>
-					<TimelineItem>
-						<TimelineSeparator>
-							<TimelineDot className={classes.secondaryTail}>
-								{/* <RepeatIcon /> */}
-							</TimelineDot>
-						</TimelineSeparator>
-						<TimelineContent>
-							{/* <Paper elevation={3} className={classes.paper}>
-						<Typography variant="h6" component="h1">
-							Repeat
-						</Typography>
-						<Typography>Because this is the life you love!</Typography>
-					</Paper> */}
-						</TimelineContent>
-					</TimelineItem>
-				</Timeline>
-			</Container>
+							</TimelineOppositeContent>
+							<TimelineSeparator>
+								<TimelineDot className={classes.timeLineDot}>
+									<MenuBookOutlinedIcon
+										style={{ fontSize: 30, color: colorNames.NAME_COLOR }}
+									/>
+								</TimelineDot>
+								<TimelineConnector className={classes.secondaryTail} />
+							</TimelineSeparator>
+							<TimelineContent>
+								<Paper elevation={3} className={classes.paper}>
+									<a
+										href="http://sp-school.in/"
+										target="_blank"
+										rel="noopener noreferrer"
+										style={{
+											textDecoration: 'none',
+											color: colorNames.SIDEBAR_TEXT,
+										}}
+									>
+										<Typography
+											variant="h6"
+											component="h1"
+											className={classes.details}
+										>
+											{' '}
+											SRI PRATAP HIGHER SECONDARY
+										</Typography>{' '}
+									</a>
+									{/* <Typography>Because it&apos;s awesome!</Typography> */}
+								</Paper>
+							</TimelineContent>
+						</TimelineItem>
+						<TimelineItem>
+							<TimelineOppositeContent>
+								<Typography
+									variant="body2"
+									color="textSecondary"
+									className={classes.typography}
+								>
+									2015
+								</Typography>
+							</TimelineOppositeContent>
+							<TimelineSeparator>
+								<TimelineDot className={classes.timeLineDot}>
+									<ImportantDevicesIcon
+										style={{ fontSize: 30, color: colorNames.NAME_COLOR }}
+									/>
+								</TimelineDot>
+								<TimelineConnector className={classes.secondaryTail} />
+							</TimelineSeparator>
+							<TimelineContent>
+								<Paper elevation={3} className={classes.paper}>
+									<a
+										href="http://www.casetcollege.in/"
+										target="_blank"
+										rel="noopener noreferrer"
+										style={{
+											textDecoration: 'none',
+											color: colorNames.SIDEBAR_TEXT,
+										}}
+									>
+										<Typography
+											variant="h6"
+											component="h1"
+											className={classes.details}
+										>
+											CASET COLLEGE OF COMPUTER SCIENCE AND ENGINEERING
+										</Typography>
+										{/* <Typography>Because it&apos;s awesome!</Typography> */}
+									</a>
+								</Paper>
+							</TimelineContent>
+						</TimelineItem>
+						<TimelineItem>
+							<TimelineOppositeContent>
+								<Typography
+									variant="body2"
+									color="textSecondary"
+									className={classes.typography}
+								>
+									2018
+								</Typography>
+							</TimelineOppositeContent>
+							<TimelineSeparator>
+								<TimelineDot className={classes.timeLineDot}>
+									<CastForEducationIcon
+										style={{ fontSize: 30, color: colorNames.NAME_COLOR }}
+									/>
+								</TimelineDot>
+								<TimelineConnector className={classes.secondaryTail} />
+							</TimelineSeparator>
+							<TimelineContent>
+								<Paper elevation={3} className={classes.paper}>
+									<a
+										href="https://www.kashmiruniversity.net/"
+										target="_blank"
+										rel="noopener noreferrer"
+										style={{
+											textDecoration: 'none',
+											color: colorNames.SIDEBAR_TEXT,
+										}}
+									>
+										<Typography
+											variant="h6"
+											component="h1"
+											className={classes.details}
+										>
+											UNIVERSITY OF KASHMIR
+										</Typography>
+										{/* <Typography>Because you need rest</Typography> */}
+									</a>
+								</Paper>
+							</TimelineContent>
+						</TimelineItem>
+						<TimelineItem>
+							<TimelineSeparator>
+								<TimelineDot className={classes.timeLineDot}>
+									{/* <RepeatIcon /> */}
+								</TimelineDot>
+							</TimelineSeparator>
+							<TimelineContent></TimelineContent>
+						</TimelineItem>
+					</Timeline>
+				</Container>
+			</Slide>
 		</div>
 	);
 }
